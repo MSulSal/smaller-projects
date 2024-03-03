@@ -1,4 +1,5 @@
 import turtle
+import math
 from fractions import gcd
 
 class Spiro:
@@ -14,8 +15,8 @@ class Spiro:
     def setparams(self, xc, yc, col, R, r, l):
         self.xc = xc
         self.yc = yc
-        self.R = R
-        self.r = r
+        self.R = int(R)
+        self.r = int(r)
         self.l = l
         self.col = col
         
@@ -25,4 +26,17 @@ class Spiro:
         
         self.t.color(*col)
         self.a = 0
+        
+    def restart(self):
+        self.drawingComplete = False
+        self.t.showturtle()
+        self.t.up()
+        
+        R, k, l = self.R, self.k, self.l
+        a = 0.0
+        
+        x = R * ((1 - k) * math.cos(a) + l * k * math.cos((1 - k) * a / k))
+        y = R * ((1 - k) * math.sin(a) - l * k * math.sin((1 - k) * a / k))
+        self.t.setpos(self.xc + x, self.yc + y)
+        self.t.down()
         
