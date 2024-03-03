@@ -23,5 +23,5 @@ def drawCircleTurtle(x0, y0, r, delta):
     for i in range(0, 361, delta):
         rotate(x0, y0, r, i)
         
-drawCircleTurtle(0, 0, 50, 90)
+drawCircleTurtle(0, 0, 50, 1)
 turtle.mainloop()
